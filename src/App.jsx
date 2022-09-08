@@ -7,7 +7,7 @@ const items = [
     title: "React",
     url: "https://reactjs.org/",
     content:
-      "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.",
+      "React is a free and open-source front-end JS library for building user interfaces based on UI components. It is maintained by Meta and a community.",
     author: "Jordan Walke",
     num_comments: 3,
     points: 5,
@@ -17,7 +17,7 @@ const items = [
     title: "Redux",
     url: "https://redux.js.org/",
     content:
-      "Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.",
+      "Redux is an open-source JS library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.",
     author: "Dan Abramov, Andrew Clark",
     num_comments: 2,
     points: 5,
@@ -48,7 +48,7 @@ const items = [
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <h1>Hello App.js</h1>
       <Accordion items={items} />
     </div>
   );
