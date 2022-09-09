@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Accordion from "./components/Accordion";
 
 const items = [
@@ -48,7 +46,6 @@ const items = [
 function App() {
   return (
     <div className="App">
-      <h1>Hello App.js</h1>
       <Accordion items={items} />
     </div>
   );
