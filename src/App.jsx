@@ -1,4 +1,5 @@
 import Accordion from "./components/Accordion";
+import Search from "./components/Search";
 
 const items = [
   {
@@ -35,7 +36,7 @@ const items = [
     title: "Github",
     url: "https://github.com/",
     content:
-      "It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project.",
+      "It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration.",
     author: "Tom Preston-Werner, Scott Chacon",
     num_comments: 2,
     points: 5,
@@ -46,7 +47,8 @@ const items = [
 function App() {
   return (
     <div className="App">
-      <Accordion items={items} />
+      {/* <Accordion items={items} /> */}
+      <Search />
     </div>
   );
 }
