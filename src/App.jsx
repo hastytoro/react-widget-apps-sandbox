@@ -3,6 +3,7 @@ import { useState } from "react";
 import Accordion from "./components/Accordion";
 import Dropdown from "./components/Dropdown";
 import Search from "./components/Search";
+import Translate from "./components/Translate";
 
 const items = [
   {
@@ -63,7 +64,7 @@ const options = [
 ];
 
 function App() {
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options[0]); // for plain <Dropdown />
   return (
     <div className="App">
       {/* <h2>Accordion</h2>
@@ -72,12 +73,15 @@ function App() {
       {/* <h2>Search WikiApi</h2>
       <Search /> */}
 
-      <h2>Dropdown</h2>
+      {/* <h2>Dropdown</h2>
       <Dropdown
         selected={selected}
         setSelected={setSelected}
         options={options}
-      />
+      /> */}
+
+      <h2>Translate</h2>
+      <Translate />
     </div>
   );
 }
