@@ -64,11 +64,15 @@ const options = [
 
 function App() {
   const [selected, setSelected] = useState(options[0]);
-  console.log(selected);
   return (
     <div className="App">
-      {/* <Accordion items={items} /> */}
-      {/* <Search /> */}
+      {/* <h2>Accordion</h2>
+      <Accordion items={items} /> */}
+
+      {/* <h2>Search WikiApi</h2>
+      <Search /> */}
+
+      <h2>Dropdown</h2>
       <Dropdown
         selected={selected}
         setSelected={setSelected}

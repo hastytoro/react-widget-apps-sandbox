@@ -58,7 +58,6 @@ const Search = () => {
     <div>
       <div className="ui form">
         <div className="field">
-          <label>Enter Search:</label>
           <input
             className="input"
             value={term}

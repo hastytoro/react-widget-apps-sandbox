@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Dropdown = ({ options, selected, setSelected }) => {
+  const [toggle, setToggle] = useState(false);
+  const ref = useRef();
+  useEffect(() => {
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setToggle(false);
+    };
+    document.body.addEventListener("click", onBodyClick, { capture: true });
+    return () => document.body.removeEventListener("click", onBodyClick);
+  }, []);
+
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) return; // exit and filter data logic
     return (
@@ -13,15 +26,20 @@ const Dropdown = ({ options, selected, setSelected }) => {
       </div>
     );
   });
-
+  // console.log(ref.current);
   return (
-    <div className="ui form">
+    <div className="ui form" ref={ref}>
       <div className="field">
-        <label className="label">Select a Color!</label>
-        <div className="ui selection dropdown visible active">
+        <div
+          onClick={() => setToggle(!toggle)}
+          className={`ui selection dropdown
+            ${toggle ? "visible active" : ""}`}
+        >
           <i className="dropdown icon" />
           <div className="text">{selected.label}</div>
-          <div className="menu visible transition">{renderedOptions}</div>
+          <div className={`menu ${toggle ? "visible transition" : ""}`}>
+            {renderedOptions}
+          </div>
         </div>
       </div>
     </div>
