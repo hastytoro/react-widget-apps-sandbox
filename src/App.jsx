@@ -63,25 +63,35 @@ const options = [
   },
 ];
 
+const showAccordion = () => {
+  if (window.location.pathname === "/") {
+    return <Accordion items={items} />;
+  }
+};
+const showSearch = () => {
+  if (window.location.pathname === "/search") {
+    return <Search />;
+  }
+};
+const showDropdown = () => {
+  if (window.location.pathname === "/dropdown") {
+    return <Dropdown />;
+  }
+};
+const showTranslate = () => {
+  if (window.location.pathname === "/translate") {
+    return <Translate />;
+  }
+};
+
 function App() {
   const [selected, setSelected] = useState(options[0]); // for plain <Dropdown />
   return (
-    <div className="App">
-      {/* <h2>Accordion</h2>
-      <Accordion items={items} /> */}
-
-      {/* <h2>Search WikiApi</h2>
-      <Search /> */}
-
-      {/* <h2>Dropdown</h2>
-      <Dropdown
-        selected={selected}
-        setSelected={setSelected}
-        options={options}
-      /> */}
-
-      <h2>Translate</h2>
-      <Translate />
+    <div>
+      {showAccordion()}
+      {showSearch()}
+      {showDropdown()}
+      {showTranslate()}
     </div>
   );
 }

@@ -5,6 +5,15 @@ const apiKey = "AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM";
 
 const Convert = ({ language, text }) => {
   const [translated, setTranslated] = useState("");
+  const [debouncedText, setDebouncedText] = useState(text);
+
+  // effect #1 (debounce state)
+  useEffect(() => {
+    const timerId = setTimeout(() => setDebouncedText(text), 1000);
+    return () => clearTimeout(timerId);
+  }, [text]);
+
+  // effect #2 (axios post)
   useEffect(() => {
     const doTranslation = async () => {
       const { data } = await axios.post(
@@ -12,7 +21,7 @@ const Convert = ({ language, text }) => {
         {},
         {
           params: {
-            q: text,
+            q: debouncedText,
             target: language.value,
             key: apiKey,
           },
@@ -21,7 +30,7 @@ const Convert = ({ language, text }) => {
       setTranslated(data.data.translations[0].translatedText);
     };
     doTranslation();
-  }, [language, text]);
+  }, [language, debouncedText]);
 
   return (
     <div>
